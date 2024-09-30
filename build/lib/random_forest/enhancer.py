@@ -1,10 +1,10 @@
 import openai
 import os
 
-class Enhancer:
+class random_forest:
     def __init__(self):
         # Load the API key from an environment variable to keep it secret
-        self.api_key = os.getenv('OPENAI_API_KEY')
+        self.api_key = os.getenv('KEY')
         if not self.api_key:
             raise ValueError("API Key not found. Set OPENAI_API_KEY environment variable.")
         openai.api_key = self.api_key

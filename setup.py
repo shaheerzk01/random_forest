@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='scikit-learns',
+    name='scikit_learns',
     version='0.1.1',  # Increment version number
     packages=find_packages(),
     install_requires=[
