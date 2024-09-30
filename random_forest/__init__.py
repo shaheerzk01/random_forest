@@ -1,1 +1,1 @@
-from .enhancer import Enhancer
+from .enhancer import random_forest
