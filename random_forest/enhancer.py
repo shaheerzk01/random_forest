@@ -1,12 +1,12 @@
 import openai
 import os
 
-class random_forest:
+class Enhancer:
     def __init__(self):
         # Load the API key from an environment variable to keep it secret
         self.api_key = os.getenv('KEY')
         if not self.api_key:
-            raise ValueError("API Key not found. Set OPENAI_API_KEY environment variable.")
+            raise ValueError("API Key not found. Set KEY environment variable.")
         openai.api_key = self.api_key
 
     def enhance_query(self, schema, question, generated_query):
@@ -31,16 +31,16 @@ class random_forest:
         )
 
         try:
-            response = openai.Completion.create(
-                engine="gpt-4",
-                prompt=prompt,
+            response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant specialized in SQL query refinement."},
+                    {"role": "user", "content": prompt},
+                ],
                 max_tokens=200,
                 temperature=0.3,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0
             )
-            refined_query = response.choices[0].text.strip()
+            refined_query = response.choices[0].message['content'].strip()
             return refined_query
 
         except openai.error.OpenAIError as e:
