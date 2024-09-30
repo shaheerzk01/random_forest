@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='scikit_learns',
+    name='ai_query_enhancer',
     version='0.1.1',  # Increment version number
     packages=find_packages(),
     install_requires=[
