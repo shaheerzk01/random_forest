@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ai_query_enhancer',
-    version='0.1.1',  # Increment version number
+    version='0.1.2',  # Increment version number
     packages=find_packages(),
     install_requires=[
         'openai>=0.27.0',
